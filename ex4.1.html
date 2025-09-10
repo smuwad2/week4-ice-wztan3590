@@ -1,0 +1,56 @@
+<html>
+
+<head>
+   <title>Event Handling</title>
+</head>
+
+<body>
+
+   <h1>Shopping List</h1>
+   <p>Get it done today</p>
+
+   <input type="text" id="inputText">
+   <!-- add a button here for adding new item -->
+   <button onclick="addToList()">Enter</button>
+
+   <ul>
+      <li>Notebook<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Jello<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Spinach<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Rice<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Birthday Cake<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Candles<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+   </ul>
+
+   <script>
+
+      // add code here
+      function addToList() {
+         const userinp = document.getElementById("inputText").value;
+
+         const new_row = document.createElement("li");
+
+         new_row.innerText = userinp;
+
+         const current_data = document.getElementsByTagName("ul")[0];
+         const delBtnElem = document.createElement("button");
+         delBtnElem.innerText = 'delete';
+         delBtnElem.addEventListener("click", function() {
+            deleteItem(this.parentNode);
+         })
+         new_row.appendChild(delBtnElem);
+         current_data.appendChild(new_row);
+
+         document.getElementById("inputText").value = "";
+      }
+
+
+      function deleteItem(elem) {
+         elem.remove();
+      }
+
+   </script>
+
+</body>
+
+</html>

@@ -11,7 +11,7 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
-   <button id='btnAdd' onclick="addItem()">Add</button>
+   <button id='btnAdd' onclick="addItem()">Enter</button>
 
    <ul id="shoppingList">
       <li>Notebook <button onclick="deleteItem(this.parentNode)">Delete</button></li>
@@ -25,20 +25,33 @@
    <script>
 
       function addItem() {
-         const ulElem = document.getElementsByTagName("ul")[0];
          const newItemVal = document.getElementById("inputText").value;
+
+         // Prevent adding empty items
+         if (newItemVal === "") {
+            alert("Please enter an item!");
+            return;
+         }
+
+         // create new list item
          const liElem = document.createElement("li");
          liElem.innerText = newItemVal;
 
-         const delBtnElem = document.createElement("button");
+         const current_data = document.getElementsByTagName("ul")[0];
 
+         // create delete button
+         const delBtnElem = document.createElement("button");
          delBtnElem.innerText = "delete";
-         ulElem.appendChild(liElem);
          delBtnElem.addEventListener("click", function() {
             deleteItem(this.parentNode);
          });
+
+         // append button to new list item
          liElem.appendChild(delBtnElem);
-         ulElem.appendChild(liElem);
+         current_data.appendChild(liElem);
+
+         // clear search bar
+         document.getElementById("inputText").value = "";
       }
 
       function deleteItem(elem) {
