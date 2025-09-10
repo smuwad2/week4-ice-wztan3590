@@ -15,10 +15,11 @@
         }
 
         #rectangle {
-            width: 50px;
+            width: 150px;
             height: 150px;
             background-color: goldenrod;
             text-align: center;
+            padding-top: 60px;
         }
 
     </style>
@@ -30,12 +31,23 @@
         </div>
         
         <script>
-            function mOver(obj) {
-                obj.innerHTML = "Thank You"
-            }
-            function mOut(obj) {
-                obj.innerHTML = "Mouse Over Me"
-            }
+
+        function mOver(obj) {
+            obj.innerHTML = "Mouse Over Me";
+            // obj.style.width = "200px";
+            // obj.style.height = "100px";
+            // obj.style.borderRadius = "0";
+            obj.id = "rectangle";
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "Mouse Over Me";
+            // obj.style.width = "150px";
+            // obj.style.height = "150px";
+            // obj.style.borderRadius = "50%";
+            obj.id = "circle";
+        }
+
         </script>
                 
 </body>
