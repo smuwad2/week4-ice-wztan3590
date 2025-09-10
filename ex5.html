@@ -14,7 +14,12 @@
             padding-top: 60px;
         }
 
-        /* Add CSS code here */ 
+        #rectangle {
+            width: 50px;
+            height: 150px;
+            background-color: goldenrod;
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -25,7 +30,12 @@
         </div>
         
         <script>
-           // add code here
+            function mOver(obj) {
+                obj.innerHTML = "Thank You"
+            }
+            function mOut(obj) {
+                obj.innerHTML = "Mouse Over Me"
+            }
         </script>
                 
 </body>
