@@ -5,8 +5,9 @@
     <h1>Shopping List</h1>
 
     <select id="select_item">
+        <option value="" disabled selected>Please Select</option>
         <option value="NoteBook">Notebook</option>
-        <option value="Jello">Jello</option>
+        <option value="Jello" >Jello</option>
         <option value="Spinach">Spinach</option>
         <option value="Rice">Rice</option>
         <option value="Birthday Cake">Birthday Cake</option>
@@ -17,13 +18,29 @@
     <ul id="shopList"></ul>
 
     <script>
-        
-        // add code here
-        
+      const selectElem = document.getElementById("select_item");
+      const cartList = document.getElementById("shopList");
+
+      // event listener is change in selection
+      selectElem.addEventListener("change", addItem);
+
+      function addItem() {
+        // value comes in here
+        const newItemVal = selectElem.value;
+          if (!newItemVal) return;
+
+        // create new <li>
+        const liElem = document.createElement("li");
+        liElem.innerText = newItemVal;
+
+        // append to shopping cart
+        cartList.appendChild(liElem);
+
+        // reset selection back to "Please Select"
+        selectElem.value = "";
+      }
         
     </script>
-
-    
 
     </body>
 </html>
